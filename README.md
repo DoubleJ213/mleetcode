@@ -1,2 +1,2 @@
 # mleetcode
-practice record of leetcode
+practice records of leetcode
