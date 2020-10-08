@@ -38,6 +38,8 @@ func reverseList2(head *ListNode) *ListNode {
 	return res
 }
 
+// TODO：递归实现
+
 func TestReverseNode(t *testing.T) {
 	res := &ListNode{0, nil}
 	temp := res
