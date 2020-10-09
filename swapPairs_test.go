@@ -20,9 +20,6 @@ func swapPairs(head *ListNode) *ListNode {
 	for prev.Next != nil && prev.Next.Next != nil {
 		//涉及4个部分变化， a1,a2,a3,a4
 		a1, a2, a3, a4 := prev, prev.Next, prev.Next.Next, prev.Next.Next.Next
-		//a1.Next = a3
-		//a3.Next = a2
-		//a2.Next = a4
 		a1.Next, a2.Next, a3.Next = a3, a4, a2
 		prev = prev.Next.Next
 	}
