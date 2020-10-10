@@ -7,9 +7,9 @@ import (
 
 //20. 有效的括号
 func isValid(s string) bool {
-	//TODO：字符串遍历 uint32 byte string 深究
-	var stack = make([]int32, 0)
-	strMap := map[int32]int32{
+	//TODO：字符串遍历 rune -- int32 byte -- uint8 string 深究
+	var stack = make([]rune, 0)
+	strMap := map[rune]rune{
 		')': '(',
 		'}': '{',
 		']': '[',
