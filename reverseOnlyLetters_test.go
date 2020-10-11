@@ -7,7 +7,6 @@ import (
 
 //917. 仅仅反转字母
 func reverseOnlyLetters(S string) string {
-	// TODO: 双指针
 	i := 0
 	j := len(S) - 1
 	res := []byte(S)
