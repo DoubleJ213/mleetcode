@@ -21,6 +21,18 @@ func (m MyList) Swap(i, j int) {
         m[i], m[j] = m[j], m[i]
 }
 
+// heap
+func (m *MyList) Push(x interface{}) {
+	*m = append(*m, x.(int))
+}
+
+func (m *MyList) Pop() interface{} {
+	pre := *m
+	*m = pre[:len(pre)-1]
+	return pre[len(pre)-1]
+}
+
+
 func maxSlidingWindow(nums []int, k int) []int {
 	var ret_list []int
 	//TODO：堆，优先队列（双端队列）
