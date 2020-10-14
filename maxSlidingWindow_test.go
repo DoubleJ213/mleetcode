@@ -9,16 +9,16 @@ import (
 type MyList []int
 
 func (m MyList) Len() int {
-	panic("implement me")
+        return len(m)
 }
 
 func (m MyList) Less(i, j int) bool {
 	// 维护最大堆
-	panic("implement me")
+        return m[i] > m[j]
 }
 
 func (m MyList) Swap(i, j int) {
-	panic("implement me")
+        m[i], m[j] = m[j], m[i]
 }
 
 func maxSlidingWindow(nums []int, k int) []int {
