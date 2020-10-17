@@ -1,63 +1,97 @@
 package mleetcode
 
 import (
-	"sort"
+	"container/heap"
+	"fmt"
 	"testing"
 )
 
-//239. 滑动窗口最大值
-type MyList []int
-
-func (m MyList) Len() int {
-        return len(m)
+type Item struct {
+	value    int
+	priority int
+	index    int
 }
 
-func (m MyList) Less(i, j int) bool {
-	// 维护最大堆
-        return m[i] > m[j]
+type PriorityQueue []*Item
+
+func (pq PriorityQueue) Len() int { return len(pq) }
+
+func (pq PriorityQueue) Less(i, j int) bool {
+	return pq[i].priority > pq[j].priority
 }
 
-func (m MyList) Swap(i, j int) {
-        m[i], m[j] = m[j], m[i]
+func (pq PriorityQueue) Swap(i, j int) {
+	pq[i], pq[j] = pq[j], pq[i]
+	pq[i].index = i
+	pq[j].index = j
 }
 
-// heap
-func (m *MyList) Push(x interface{}) {
-	*m = append(*m, x.(int))
+// Push
+func (pq *PriorityQueue) Push(x interface{}) {
+	n := len(*pq)
+	item := x.(*Item)
+	item.index = n
+	*pq = append(*pq, item)
 }
 
-func (m *MyList) Pop() interface{} {
-	pre := *m
-	*m = pre[:len(pre)-1]
-	return pre[len(pre)-1]
+func (pq *PriorityQueue) Pop() interface{} {
+	old := *pq
+	n := len(old)
+	item := old[n-1]
+	old[n-1] = nil
+	item.index = -1
+	*pq = old[0 : n-1]
+	return item
 }
 
+//func (pq *PriorityQueue) Update(item *Item, value int, priority int) {
+//	item.value = value
+//	item.priority = priority
+//	heap.Fix(pq, item.index)
+//}
+
+func (pq *PriorityQueue) Remove(value int) {
+	for i, v := range *pq {
+		if v != nil && v.value == value {
+			heap.Remove(pq, i)
+			break
+		}
+	}
+}
 
 func maxSlidingWindow(nums []int, k int) []int {
-	var ret_list []int
-	//TODO：堆，优先队列（双端队列）
-	//取前k个元素,排序和维护堆，原来nums不改变，方便后续for循环遍历
-	new_nums := nums
-	sort.Sort(MyList(new_nums))
-	length := len(new_nums)
-	if len(new_nums) > k {
-		new_nums = new_nums[len(new_nums)-k:]
-	}
-
-	//heap.Init()
-	for i := 0; i < length; i++ {
-		if i < k {
-			ret_list = append(ret_list, new_nums[0])
-		} else {
-
+	pq := make(PriorityQueue, 0)
+	heap.Init(&pq)
+	n := len(nums)
+	ans := make([]int, n-k+1)
+	for i := 0; i < n; i++ {
+		start := i - k
+		if start >= 0 {
+			pq.Remove(nums[start])
+		}
+		item := &Item{
+			value:    nums[i],
+			priority: nums[i],
 		}
 
+		heap.Push(&pq, item)
+		if pq.Len() == k {
+			ans[start+1] = pq[0].value
+		}
 	}
-	return nums
+	return ans
 }
 
 func TestMaxSlidingWindow(t *testing.T) {
-	nums := []int{1, 3, -1, -3, 5, 3, 6, 7}
-	k := 3
-	maxSlidingWindow(nums, k)
+	nums2 := []int{1, 3, -1, -3, 5, 3, 6, 7}
+	nums := []int{7, 2, 4}
+	nums3 := []int{9, 10, 9, -7, -4, -8, 2, -6}
+
+	aaa := maxSlidingWindow(nums2, 3)
+	bbb := maxSlidingWindow(nums, 2)
+	ccc := maxSlidingWindow(nums3, 5)
+
+	fmt.Printf("%v", aaa)
+	fmt.Printf("%v", bbb)
+	fmt.Printf("%v", ccc)
 }
