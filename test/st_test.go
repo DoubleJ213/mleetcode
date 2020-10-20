@@ -57,6 +57,20 @@ func TestReverseNode(t *testing.T) {
 }
 
 func TestST2(t *testing.T) {
+	//aa := []int{1, 2, 3}
+	//bb := []int{1, 3, 2}
+	//
+	//if aa == bb {
+	//	fmt.Println("no")
+	//}
+
+	aaa := [3]int{1, 2, 3}
+	bbb := [3]int{1, 2, 3}
+
+	if aaa == bbb {
+		fmt.Println("yes")
+	}
+
 	i := 10
 	ip := &i
 	fmt.Printf("原始指针的内存地址是：%p\n", &ip)
