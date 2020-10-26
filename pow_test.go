@@ -26,10 +26,22 @@ func myPow(x float64, n int) float64 {
 }
 
 func myPow1(x float64, n int) float64 {
-	return 0
+	if n < 0 {
+		x = 1 / x
+		n = -n
+	}
+	var pow float64 = 1
+	for n > 0 {
+		if n&1 == 1 {
+			pow = pow * x
+		}
+		x *= x
+		n = n >> 1
+	}
+	return pow
 }
 
 func TestPow(t *testing.T) {
-	fmt.Printf("%v", myPow(2, 10))
-	fmt.Printf("%v", myPow1(2, 10))
+	//fmt.Printf("%v", myPow(2, 10))
+	fmt.Printf("%v", myPow1(3, 10))
 }
