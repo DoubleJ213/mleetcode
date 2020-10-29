@@ -42,6 +42,6 @@ func myPow1(x float64, n int) float64 {
 }
 
 func TestPow(t *testing.T) {
-	fmt.Printf("%v", myPow(2, 10))
-	fmt.Printf("%v", myPow1(3, 10))
+	//fmt.Printf("%v", myPow(2, 10))
+	fmt.Printf("%v", myPow1(2, 10))
 }
