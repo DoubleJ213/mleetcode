@@ -5,86 +5,36 @@ import (
 	"testing"
 )
 
-//单调队列
-type queue struct {
-	value []int
-}
-
-func (q *queue) IsEmpty() bool {
-	return len(q.value) == 0
-}
-
-func (q *queue) push(num int) {
-	q.value = append(q.value, num)
-}
-
-func (q *queue) popFront() int {
-	if q.IsEmpty() == true {
-		return -1
-	}
-	tmp := q.value[0]
-	q.value = q.value[1:]
-	return tmp
-}
-
-func (q *queue) front() int {
-	return q.value[0]
-}
-
-func (q *queue) popBack() int {
-	if q.IsEmpty() == true {
-		return -1
-	}
-	tmp := q.value[len(q.value)-1]
-	q.value = q.value[:len(q.value)-1]
-	return tmp
-}
-
-func (q *queue) back() int {
-	if q.IsEmpty() == true {
-		return -1
-	}
-	return q.value[len(q.value)-1]
-}
-
-type maxQueue struct {
-	data queue
-}
-
-func (m *maxQueue) push(n int) {
-	for m.data.IsEmpty() == false && m.data.back() < n {
-		m.data.popBack()
-	}
-	m.data.push(n)
-}
-
-func (m *maxQueue) max() int {
-	return m.data.front()
-}
-
-func (m *maxQueue) pop(n int) {
-	if m.data.IsEmpty() == false && m.data.front() == n {
-		m.data.popFront()
-	}
-}
-
+// window中记录index，window最左边为窗口中最大的数
+// 判断窗口大小的数据量，如果超过k个，移除最左边那个，如果不超过，下面的方法
+// 如果新加入的数小于窗口最左边的数，则加入窗口
+// 如果新加入的数大于窗口最左边的数，则窗口中的数全部移除，把当前的index放到window中
 func maxSlidingWindow2(nums []int, k int) []int {
-	var res []int
-	window := maxQueue{}
-	for i := 0; i < len(nums); i++ {
-		if i < k-1 {
-			window.push(nums[i])
-		} else {
-			window.push(nums[i])
-			res = append(res, window.max())
-			window.pop(nums[i-k+1])
+	if nums == nil {
+		return []int{}
+	}
+	window := make([]int, 0)
+	res := make([]int, 0)
+	for i, x := range nums {
+		if i >= k && window[0] <= i-k {
+			window = window[1:]
 		}
+		//len(window)是否一定大于0
+		for len(window) > 0 && nums[window[len(window)-1]] <= x {
+			window = window[:len(window)-1]
+		}
+		window = append(window, i)
+		fmt.Println(i, x, window)
+		if i >= k-1 {
+			res = append(res, nums[window[0]])
+		}
+
 	}
 	return res
 }
 
 func TestMaxSlidingWindow2(t *testing.T) {
-	nums2 := []int{1, 3, -1, -3, 5, 3, 6, 7}
+	nums2 := []int{1, 4, -1, 3, 2, 3, 6, 7}
 	nums := []int{7, 2, 4}
 	nums3 := []int{9, 10, 9, -7, -4, -8, 2, -6}
 
