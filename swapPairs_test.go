@@ -11,6 +11,7 @@ import (
 //	Next *ListNode
 //}
 
+// 24 两两翻转
 func swapPairs(head *ListNode) *ListNode {
 	head = &ListNode{
 		Val:  0,
