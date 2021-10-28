@@ -22,6 +22,7 @@ import (
 ]
 
 求一个时间范围比如【2021-10-09T19:00:00~2021-10-10T03:59:59】对应每个整点被监控组件的状态
+输出数组[false false true true false false true true true]
 
 补充说明：
 1.监控时间数组，第一个时间对应的值为false
