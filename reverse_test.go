@@ -19,16 +19,28 @@ type ListNode struct {
 }
 
 //leetcode 206
+//翻转，不是俩俩翻转
 func reverseList1(head *ListNode) *ListNode {
-	var res *ListNode
+	var tmp *ListNode
 	for head != nil {
-		temp := head.Next
-		head.Next = res
-		res = head
-		head = temp
+		head.Next, tmp, head = tmp, head, head.Next
 	}
+	return tmp
+}
 
-	return res
+func reverseList3(head *ListNode) *ListNode {
+	return help(nil, head)
+}
+
+//nil,  1,2,3,4,5
+//nil,1, 2,3,4,5
+func help(pre, head *ListNode) *ListNode {
+	if head == nil {
+		return pre
+	}
+	next := head.Next
+	head.Next = pre
+	return help(head, next)
 }
 
 func reverseList2(head *ListNode) *ListNode {
@@ -48,7 +60,9 @@ func TestReverseNode(t *testing.T) {
 		temp.Next = &ListNode{i, nil}
 		temp = temp.Next
 	}
-	reverseList(res.Next)
+	//reverseList(res.Next)
+	//reverseList1(res.Next)
+	reverseList3(res.Next)
 	//reverseList2(res.Next)
 }
 

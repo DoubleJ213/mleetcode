@@ -27,6 +27,26 @@ func swapPairs(head *ListNode) *ListNode {
 	return head.Next
 }
 
+func swapPairs1(head *ListNode) *ListNode {
+	tmp := &ListNode{
+		Val:  -1,
+		Next: head,
+	}
+	res := tmp
+	for tmp.Next != nil && tmp.Next.Next != nil {
+		pre1 := tmp
+		pre := tmp.Next
+		pos := tmp.Next.Next
+		pos1 := tmp.Next.Next.Next
+		pre1.Next, pos.Next, pre.Next = pos, pre, pos1
+
+		tmp = tmp.Next.Next
+
+	}
+
+	return res.Next
+}
+
 func TestSwapPairs(t *testing.T) {
 	res := &ListNode{0, nil}
 	temp := res
@@ -34,5 +54,6 @@ func TestSwapPairs(t *testing.T) {
 		temp.Next = &ListNode{i, nil}
 		temp = temp.Next
 	}
-	swapPairs(res.Next)
+	//swapPairs(res.Next)
+	swapPairs1(res.Next)
 }
