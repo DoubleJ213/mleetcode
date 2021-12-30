@@ -37,12 +37,24 @@ type ListNode struct {
 }
 
 func reverseList(head *ListNode) *ListNode {
-	fmt.Printf("head: %p\n", &head)
-	var res *ListNode
+	var tmp *ListNode
+	a := &ListNode{Val: -1, Next: nil}
+	_ = a
+
+	//写全
+	//var b *ListNode = &ListNode{Val: -1, Next: nil}
+	//_ = b
+
+	//tmp.Val = 1 此时只是定义了，并未真正的进行初始化，没有内存地址
+	//tmp = new(ListNode);tmp.Val = 2
+
 	for head != nil {
-		head.Next, res, head = res, head, head.Next
+		a := head.Next
+		head.Next = tmp
+		tmp = head
+		head = a
 	}
-	return res
+	return tmp
 }
 
 func TestReverseNode(t *testing.T) {

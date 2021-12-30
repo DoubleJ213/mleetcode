@@ -64,6 +64,23 @@ func TestReverseNode(t *testing.T) {
 	//reverseList1(res.Next)
 	reverseList3(res.Next)
 	//reverseList2(res.Next)
+	reverseList4(res.Next)
+}
+
+func reverseList4(root *ListNode) *ListNode {
+	if root == nil || root.Next == nil {
+		return root
+	}
+	newHead := reverseList4(root.Next)
+	//第一轮出栈，head为5，head.next为空，返回5
+	//第二轮出栈，head为4，head.next为5，执行head.next.next=head也就是5.next=4，
+	//把当前节点的子节点的子节点指向当前节点
+	//此时链表为1->2->3->4<->5，由于4与5互相指向，所以此处要断开4.next=null
+	//此时链表为1->2->3->4<-5
+	//返回节点5
+	root.Next.Next = root
+	root.Next = nil
+	return newHead
 }
 
 func reverseList(head *ListNode) {
