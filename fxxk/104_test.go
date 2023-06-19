@@ -6,7 +6,7 @@ import (
 )
 
 //104. 二叉树的最大深度
-func maxDepth(root *TreeNode) int {
+func maxDepth2(root *TreeNode) int {
 	//BFS
 	if root == nil {
 		return 0
@@ -37,6 +37,6 @@ func TestAl104(t *testing.T) {
 	root3 := &TreeNode{3, root6, root7}
 	root2 := &TreeNode{2, root4, root5}
 	root := &TreeNode{1, root2, root3}
-	fmt.Println(maxDepth(root))
+	fmt.Println(maxDepth2(root))
 	fmt.Println("done")
 }

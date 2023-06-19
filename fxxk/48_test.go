@@ -1,5 +1,10 @@
 package fxxk
 
+import (
+	"fmt"
+	"testing"
+)
+
 /*
 48. 旋转图像
 给定一个 n×n 的二维矩阵matrix 表示一个图像。请你将图像顺时针旋转 90 度。
@@ -19,6 +24,40 @@ n == matrix.length == matrix[i].length
 
 */
 
+/*
+rotate
+先沿着对角线翻转，每一行再翻转
+*/
 func rotate(matrix [][]int) {
+	size := len(matrix)
+	if size == 1 {
+		return
+	}
+	for i := 0; i < size; i++ {
+		for j := i; j < size; j++ {
+			matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+		}
+	}
+	for k := 0; k < size; k++ {
+		for i := 0; i < size/2; i++ {
+			matrix[k][i], matrix[k][size-1-i] = matrix[k][size-1-i], matrix[k][i]
+		}
+	}
+	fmt.Println("123")
+}
 
+func TestAl48(t *testing.T) {
+	rotate([][]int{[]int{1, 2, 3}, []int{4, 5, 6}, []int{7, 8, 9}})
+
+	//[1,2,3]
+	//[4,5,6]
+	//[7,8,9]
+
+	//[1,4,7]
+	//[2,5,8]
+	//[3,6,9]
+
+	//[7, 4, 1]
+	//[8, 5, 2]
+	//[9, 6, 3]
 }

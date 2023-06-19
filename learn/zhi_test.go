@@ -186,3 +186,21 @@ func (node NodeID) PrefixLen() (ret int) {
 }
 
 //func PrefixLen所做的是查找node开始的连续零的数量。外部循环每次执行一个字节，而内部循环处理不同的位:当j=0时，它向右移动7，因此从左边得到第一个位，当j=1时，它向右移动6，得到第二个位，以此类推。当遇到1的位时，它返回已经检查过的位的计数。
+
+func TestL1(t *testing.T) {
+	hehe := 'b' - 'a'
+	//单引号，表示byte类型或rune类型，对应 uint8和int32类型，默认是 rune 类型。byte用来强调数据是raw data，而不是数字；而rune用来表示Unicode的code point。
+	fmt.Printf("%v", hehe)
+
+	/*
+		hehe1 := "b" - "a"
+		双引号，是字符串，实际上是字符数组。
+		fmt.Printf("%v", hehe1)
+		Golang限定字符或者字符串一共三种引号，单引号（’’)，双引号("") 以及反引号(``)。反引号就是标准键盘“Esc”按钮下面的那个键。
+		对应的英文是：Single quote、Double quote、Back quote。
+		单引号，表示byte类型或rune类型，对应 uint8和int32类型，默认是 rune 类型。byte用来强调数据是raw data，而不是数字；而rune用来表示Unicode的code point。
+		双引号，才是字符串，实际上是字符数组。可以用索引号访问某字节，也可以用len()函数来获取字符串所占的字节长度。
+		反引号，表示字符串字面量，但不支持任何转义序列。字面量 raw literal string 的意思是，你定义时写的啥样，它就啥样，你有换行，它就换行。你写转义字符，它也就展示转义字符。
+	*/
+
+}

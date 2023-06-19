@@ -1,6 +1,12 @@
 package learn
 
-import "flag"
+import (
+	"flag"
+	"github.com/containers/storage/pkg/homedir"
+	"os"
+	"path"
+	"strings"
+)
 import "fmt"
 
 // 定义命令行参数对应的变量，这三个变量都是指针类型
@@ -34,4 +40,11 @@ func main() {
 	fmt.Println("age=", *cliAge)
 	fmt.Println("gender=", *cliGender)
 	fmt.Println("flagname=", cliFlag)
+}
+
+func GetRuntimeRootDir(name string) string {
+	if v, ok := os.LookupEnv(strings.ToUpper(name) + "_RUNTIME_ROOT"); ok {
+		return v
+	}
+	return path.Join(homedir.Get(), fmt.Sprintf(".%s", name))
 }

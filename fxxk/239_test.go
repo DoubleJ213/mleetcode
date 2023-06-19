@@ -95,3 +95,32 @@ func TestMaxSlidingWindow(t *testing.T) {
 	fmt.Printf("%v", bbb)
 	fmt.Printf("%v", ccc)
 }
+
+func maxSlidingWindow4(nums []int, k int) []int {
+	if nums == nil || len(nums) == 0 || len(nums) < k {
+		return nil
+	}
+	window := make([]int, 0)
+	result := make([]int, 0)
+	pushIntoWindow := func(i int) {
+		for len(window) > 0 && nums[i] >= nums[window[len(window)-1]] {
+			//窗口中已经有元素。且窗口最后一个没有自己大，把他干掉就行
+			window = window[:len(window)-1]
+		}
+		//把自己加进去
+		window = append(window, i)
+	}
+	for i := 0; i < k; i++ {
+		//开始构造滑动窗口。前面K个元素，直接往里面丢就行。不需要考虑最前面元素过期的问题
+		pushIntoWindow(i)
+	}
+	result = append(result, nums[window[0]])
+	for i := k; i < len(nums); i++ {
+		pushIntoWindow(i)
+		if window[0] <= i-k {
+			window = window[1:]
+		}
+		result = append(result, nums[window[0]])
+	}
+	return result
+}
