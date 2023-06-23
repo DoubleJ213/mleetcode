@@ -51,13 +51,6 @@ func maxDepth(root *TreeNode) int {
 	return getMax(leftMax, rightMax) + 1
 }
 
-func getMax(x, y int) int {
-	if x >= y {
-		return x
-	}
-	return y
-}
-
 func TestAl543(t *testing.T) {
 	tree1 := &TreeNode{Val: 15, Left: nil, Right: nil}
 	tree2 := &TreeNode{Val: 7, Left: nil, Right: nil}
