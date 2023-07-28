@@ -33,26 +33,51 @@ struct Node {
 -1000 <= node.val <= 1000
 */
 
-type Node struct {
+type Node116 struct {
 	Val   int
-	Left  *Node
-	Right *Node
-	Next  *Node
+	Left  *Node116
+	Right *Node116
+	Next  *Node116
 }
 
-func connect(root *Node) *Node {
-	//待刷
+/*
+层序遍历，先把同一层的指针放到数组中
+然后针对每一层的数组遍历，链接起来
+*/
+func connect(root *Node116) *Node116 {
+	listNode := make([]*Node116, 0)
+	listNode = append(listNode, root)
+	for len(listNode) > 0 {
+		tmpNode := make([]*Node116, 0)
+		for left := 0; left < len(listNode); left++ {
+			lNode := listNode[left]
+			if lNode != nil {
+				if left+1 < len(listNode) {
+					//同层存在下一个节点才需要修改指针
+					rNode := listNode[left+1]
+					lNode.Next = rNode
+				}
+				if lNode.Left != nil {
+					tmpNode = append(tmpNode, lNode.Left)
+				}
+				if lNode.Right != nil {
+					tmpNode = append(tmpNode, lNode.Right)
+				}
+			}
+		}
+		listNode = tmpNode
+	}
 	return root
 }
 
 func TestAl116(t *testing.T) {
-	root7 := &Node{7, nil, nil, nil}
-	root6 := &Node{6, nil, nil, nil}
-	root5 := &Node{5, nil, nil, nil}
-	root4 := &Node{4, nil, nil, nil}
-	root3 := &Node{3, root6, root7, nil}
-	root2 := &Node{2, root4, root5, nil}
-	root := &Node{1, root2, root3, nil}
+	root7 := &Node116{7, nil, nil, nil}
+	root6 := &Node116{6, nil, nil, nil}
+	root5 := &Node116{5, nil, nil, nil}
+	root4 := &Node116{4, nil, nil, nil}
+	root3 := &Node116{3, root6, root7, nil}
+	root2 := &Node116{2, root4, root5, nil}
+	root := &Node116{1, root2, root3, nil}
 	fmt.Printf("%v", connect(root))
 	fmt.Println("1")
 }

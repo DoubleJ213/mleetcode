@@ -47,7 +47,7 @@ func postorderTraversal4(root *TreeNode) []int {
 		}
 		root = treeList[len(treeList)-1]
 		treeList = treeList[:len(treeList)-1]
-		if root.Right == nil || root == tmp {
+		if root.Right == nil || root.Right == tmp {
 			resp = append(resp, root.Val)
 			tmp = root
 			root = nil

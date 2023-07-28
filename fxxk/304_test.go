@@ -41,7 +41,7 @@ type NumMatrix struct {
 }
 
 //前缀和主要适用的场景是原始数组不会被修改的情况下，频繁查询某个区间的累加和。
-func Constructor(matrix [][]int) *NumMatrix {
+func Constructor304(matrix [][]int) *NumMatrix {
 	if matrix == nil {
 		return &NumMatrix{
 			Sum: nil,
@@ -93,7 +93,7 @@ func (this *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int {
 
 /**
  * Your NumMatrix object will be instantiated and called as such:
- * obj := Constructor(matrix);
+ * obj := Constructor1(matrix);
  * param_1 := obj.SumRegion(row1,col1,row2,col2);
  */
 
@@ -106,7 +106,7 @@ func TestAl304(t *testing.T) {
 	hehe := [][]int{sub1, sub2, sub3, sub4, sub5}
 
 	fmt.Printf("len %d \n", len(hehe))
-	obj := Constructor([][]int{})
+	obj := Constructor304([][]int{})
 	//fmt.Println(obj.SumRegion(1, 1, 2, 2))
 
 	fmt.Println(obj.SumRegion(0, 0, 0, 0))

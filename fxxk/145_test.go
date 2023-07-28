@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-// 二叉树，后序遍历
+// 二叉树，er后序遍历
 
 func postorderTraversal3(root *TreeNode) []int {
 	listTree := make([]*TreeNode, 0)

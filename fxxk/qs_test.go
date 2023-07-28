@@ -36,6 +36,6 @@ func qs(nums []int, left int, right int) {
 }
 
 func TestQuickSort(t *testing.T) {
-	var nums = []int{2, 4, 5, 1, 8, 3}
+	var nums = []int{2, 2}
 	quicksort(nums)
 }
