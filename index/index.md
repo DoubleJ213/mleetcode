@@ -21,13 +21,12 @@
 
 
 待刷
-97
-1143
+
 
 
 
 基础
-二维数组初始化和赋值
+二维数组初始化和赋值 509 322 518 1143
 二叉树构造
 链表构造
 最大、小堆
@@ -41,5 +40,71 @@ fifo
 二分法
 前缀和、差分数组
 滑动窗口
-dp
+
+dp 509(fib) 322 300(最长递增子序列)
+组合/子集问题 、排列问题
+
+元素无重不可复选
+元素可重不可复选
+元素无重可复选
+
+https://labuladong.github.io/algo/di-ling-zh-bfe1b/hui-su-sua-56e11/
+
+
+
+    public int coinChange(int[] coins, int amount) {
+
+        int[][] dp = new int[coins.length+1][amount+1];
+        // coin = 0  没有钱 
+        for(int j = 1 ; j <=amount;j++){
+            dp[0][j] = Integer.MAX_VALUE;
+        }
+        //amount = 0  要凑的钱 为 0 
+        for(int i = 0; i<=coins.length;i++){
+            dp[i][0] = 0;
+        }
+        
+        for(int i = 1; i<=coins.length;i++){
+            for(int j = 1; j<=amount;j++){
+                //注意这里需要对 Interger.MAX_VALUE 这个边界初始值进行判断
+                if( j >= coins[i-1] && dp[i][j-coins[i-1]]!=Integer.MAX_VALUE ){
+
+                    dp[i][j] = Math.min(dp[i-1][j],dp[i][j-coins[i-1]]+1);
+                }else{//面额大于 要凑的钱
+                    dp[i][j] = dp[i-1][j];
+                }
+
+            }
+        }
+        
+        return dp[coins.length][amount] == Integer.MAX_VALUE ? -1: dp[coins.length][amount];
+    }
+}
+
+
+class Solution {
+    // dp[i][j] 表示 将i个硬币装入背包 ， 剩余 需要凑的钱(j)是多少
+    public int change(int amount, int[] coins) {
+        
+        int[][] dp = new int[coins.length+1][amount+1];
+        //base case
+        for(int i = 0; i<= coins.length;i++){
+            dp[i][0] = 1;//base case  就是要凑 0 元 说明直接每种硬币都能拿到一种可能性 就是啥也不装
+        }
+
+
+        for(int i = 1; i<=coins.length; i++){
+            for(int j = 1;j<=amount; j++){
+                if(j >= coins[i-1]){//要凑的钱 比 当前的硬币面值大
+                    int a = dp[i-1][j];//依赖于前一种  当前不拿硬币  就剩余要凑 j 了
+                    int b = dp[i][j-coins[i-1]];//当前拿了硬币 装入硬币了  就剩余要凑 j-coins[i-1]
+                    dp[i][j] = a+b;//因为要求的是总共多少可能 组合数 需要将两种情况的组合数相加
+                }else{//剩余要凑的 j 元 比 当前的硬币面值还要小 说明凑不出来 只能依赖前一种
+                    dp[i][j] = dp[i-1][j];
+                }
+            }
+        }
+        return  dp[coins.length][amount];
+    }
+}
 

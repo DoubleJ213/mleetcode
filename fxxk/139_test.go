@@ -145,14 +145,14 @@ dpRes[index] = dpRes[index-len(word)] && deRes[index-len(word): index] == word
 下面的写法是逆着上面来的，看着正着遍历，但是写结果是反着来的
 */
 var wordMap map[string]int
-var dpRes []int
+var dpRes139 []int
 
 func wordBreak3(s string, wordDict []string) bool {
 	wordMap = make(map[string]int)
 	for _, word := range wordDict {
 		wordMap[word] = 1
 	}
-	dpRes = make([]int, len(s))
+	dpRes139 = make([]int, len(s))
 	/*	默认值为0,
 		当值为0认为当前的index没有计算过
 		值为1 认为 true
@@ -168,8 +168,8 @@ func dp139_1(input string, index int) bool {
 
 	fmt.Printf("%v \n", index)
 	// 防止冗余计算
-	if dpRes[index] != 0 {
-		if dpRes[index] == 1 {
+	if dpRes139[index] != 0 {
+		if dpRes139[index] == 1 {
 			return true
 		}
 		return false
@@ -182,14 +182,14 @@ func dp139_1(input string, index int) bool {
 			// 找到一个单词匹配 s[index..index+i)
 			// 只要 s[index+index+i..] 可以被拼出，s[index..] 就能被拼出
 			if dp139_1(input, index+i) {
-				dpRes[index] = 1
+				dpRes139[index] = 1
 				return true
 			}
 		}
 	}
 
 	// s[index..] 无法被拼出
-	dpRes[index] = -1
+	dpRes139[index] = -1
 	return false
 }
 

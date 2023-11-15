@@ -42,7 +42,7 @@ base case 零钱0的时候最小需要0个硬币
 明确 dp 函数/数组的定义 子问题的处理办法
 */
 
-func coinChange(coins []int, amount int) int {
+func coinChange0(coins []int, amount int) int {
 	//暴力递归
 	if len(coins) == 0 || amount == 0 {
 		return 0
@@ -87,7 +87,7 @@ func getMin322(x int, y int) int {
 }
 
 func TestAl322(t *testing.T) {
-	fmt.Printf("3 --- %v\n", coinChange2([]int{1, 2, 5}, 11))
+	fmt.Printf("3 --- %v\n", coinChange0([]int{1, 2, 5}, 11))
 	fmt.Printf("-1 --- %v\n", coinChange2([]int{2}, 3))
 	fmt.Printf("暴力算法超时了 --- %v\n", coinChange2([]int{1, 2, 5}, 100))
 }
