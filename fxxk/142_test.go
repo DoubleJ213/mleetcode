@@ -46,7 +46,7 @@ func detectCycle(head *ListNode) *ListNode {
 	}
 	// 如果跳出循环证明有环，下面是取头结点，当前slow、fast已经指向环内了
 	// 因为之前fast比slow快一步，fast走过的总步数是slow的2倍
-	//  D+S1+n(S2+S1)= 2(D+S1) D为起点到环入口 S1为环入口到相遇，S2为相遇到环入口
+	// D+S1+n(S2+S1)= 2(D+S1) D为起点到环入口 S1为环入口到相遇，S2为相遇到环入口
 	// n假设为1 D=S2  假设 n为2 S1+S2+S2=D 不管多转多少圈，一定在入口相遇
 	slow = head
 	for slow != fast {
