@@ -38,7 +38,7 @@ type Codec struct {
 	strSlice []string
 }
 
-func Constructor() Codec {
+func Constructor297() Codec {
 	return Codec{}
 }
 
@@ -108,11 +108,11 @@ func TestAl297(t *testing.T) {
 	node2 := &TreeNode{Val: 2, Left: nil, Right: node5}
 	root := &TreeNode{Val: 1, Left: node2, Right: node3}
 
-	ser := Constructor()
+	ser := Constructor297()
 	data := ser.serialize(root)
 	fmt.Println(data)
 
-	deSer := Constructor()
+	deSer := Constructor297()
 	ans := deSer.deserialize(data)
 	fmt.Println(ans)
 	fmt.Println("done")

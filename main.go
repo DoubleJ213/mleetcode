@@ -17,46 +17,49 @@ func main() {
 			fmt.Printf("是否继续输入(是:t 不是:f)\n")
 			fmt.Scanln(&goOn)
 		}*/
-	/*	diff := getDiff(9, 8, 19, 14)
-		diff += getDiff(9, 23, 18, 18)
-		diff += getDiff(9, 17, 18, 50)
-		diff += getDiff(9, 12, 17, 57)
-		diff += getDiff(8, 29, 18, 0)
-		fmt.Printf("比正常工时多(负数为少) %v \n", diff)*/
+	diff := getDiff(9, 26, 18, 18)
+	diff += getDiff(9, 19, 19, 24)
+	diff += getDiff(9, 21, 18, 39)
+	diff += getDiff(9, 14, 18, 5)
+	diff += getDiff(9, 19, 19, 45)
+	//diff += getDiff(9, 12, 17, 57)
+	//diff += getDiff(8, 29, 18, 0)
+	fmt.Printf("比正常工时多(负数为少) %v \n", diff)
 
-	numbers1 := [5]int{1, 2, 3, 4, 5} //切片
-	for i := range numbers1 {
-		if i == 5 {
-			numbers1[i] &= i
-			//numbers1[i] = numbers1[i] | i
-			//	按位或  4|3 100 ｜ 011 = 111  111的十进制7
+	/*	numbers1 := [5]int{1, 2, 3, 4, 5} //数组
+		for i := range numbers1 {
+			if i == 4 {
+				numbers1[i] |= i
+				//numbers1[i] = numbers1[i] | i
+				//	按位或  4|3 100 ｜ 011 = 111  111的十进制7
+			}
 		}
-	}
-	fmt.Println(numbers1)
+		fmt.Println(numbers1)
 
-	numbers2 := []int{1, 2, 3, 4, 5} //数组
-	maxIndex2 := len(numbers2) - 1
-	for i, e := range numbers2 {
-		if i == maxIndex2 {
-			numbers2[0] &= e
-		} else {
-			numbers2[i+1] += e
+		numbers2 := []int{1, 2, 3, 4, 5} //切片
+		maxIndex2 := len(numbers2) - 1
+		for i, e := range numbers2 {
+			if i == maxIndex2 {
+				numbers2[0] |= e
+			} else {
+				numbers2[i+1] += e
+			}
 		}
-	}
-	fmt.Println(numbers2)
+		fmt.Println(numbers2)*/
 	//	[5 3 5 7 9 11]
 	/*
-		numbers3 := []int{1, 2, 3, 4, 5, 6} //数组
+		//numbers3 := [...]int{1, 2, 3, 4, 5} //数组
+		//numbers3 := []int{1, 2, 3, 4, 5} //切片  [16 3 6 10 15]
+		numbers3 := [6]int{1, 2, 3, 4, 5} //数组  [1 3 5 7 9 5]
 		maxIndex3 := len(numbers3) - 1
 		for i, e := range numbers3 {
 			if i == maxIndex3 {
-				numbers3[0] |= e
+				numbers3[0] += e
 			} else {
 				numbers3[i+1] += e
 			}
 		}
 		fmt.Println(numbers3)*/
-	//[5 3 6 10 15 21]
 
 }
 
