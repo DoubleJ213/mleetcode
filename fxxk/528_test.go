@@ -61,20 +61,20 @@ pickIndex将被调用不超过 104次
 二分法 找大于等于这个随机数的最小元素索引
 最后对这个索引减一（因为前缀和数组有一位索引偏移）
 */
-type Solution struct {
+type Solution528 struct {
 	preSum []int
 }
 
-func Constructor528(w []int) Solution {
+func Constructor528(w []int) Solution528 {
 	preSum := make([]int, len(w)+1)
 	preSum[0] = 0
 	for i := 1; i < len(w)+1; i++ {
 		preSum[i] = preSum[i-1] + w[i-1]
 	}
-	return Solution{preSum: preSum}
+	return Solution528{preSum: preSum}
 }
 
-func (this *Solution) PickIndex() int {
+func (this *Solution528) PickIndex() int {
 	size := len(this.preSum)
 	max := this.preSum[size-1]
 

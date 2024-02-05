@@ -31,7 +31,7 @@ var status22 map[int]int
 搞一个map,key 40 和41 然后比较 40 和41的value值
 无重可复
 */
-func generateParenthesis(n int) []string {
+func generateParenthesis22(n int) []string {
 	res22 = make([]string, 0)
 	if n == 0 {
 		return res22
@@ -72,5 +72,5 @@ func isOk22(n int) bool {
 }
 
 func TestAl22(t *testing.T) {
-	fmt.Printf("%v", generateParenthesis(3))
+	fmt.Printf("%v", generateParenthesis22(3))
 }
