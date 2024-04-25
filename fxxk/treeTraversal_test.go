@@ -5,13 +5,6 @@ import (
 	"testing"
 )
 
-//
-//type TreeNode struct {
-//	Val   int
-//	Left  *TreeNode
-//	Right *TreeNode
-//}
-
 // DFS 前序遍历、中序遍历、后续遍历
 func TestF(t *testing.T) {
 	node7 := &TreeNode{Val: 7}
@@ -143,7 +136,7 @@ func dfsPreorderTraversal(root *TreeNode, res *[]int) {
 	dfsPreorderTraversal(root.Right, res)
 }
 
-//中序遍历 94
+// 中序遍历 94
 func inorderTraversal(root *TreeNode) []int {
 	res := make([]int, 0)
 	dfsInorderTraversal(root, &res)
