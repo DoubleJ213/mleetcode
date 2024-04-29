@@ -35,15 +35,15 @@ import (
 给定的树为二叉搜索树。
 */
 
-var sum int
+var sum538 int
 
 func convertBST(root *TreeNode) *TreeNode {
 	if root == nil {
 		return nil
 	}
 	convertBST(root.Right)
-	sum += root.Val
-	root.Val = sum
+	sum538 += root.Val
+	root.Val = sum538
 	convertBST(root.Left)
 	return root
 }

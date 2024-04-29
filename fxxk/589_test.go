@@ -33,19 +33,14 @@ n 叉树的高度小于或等于 1000
  * }
  */
 
-type Node struct {
-	Val      int
-	Children []*Node
-}
-
 var res589 []int
 
-func preorder(root *Node) []int {
+func preorder(root *Node589) []int {
 	res589 = make([]int, 0)
 	if root == nil {
 		return res589
 	}
-	toTraverseList := [][]*Node{{root}}
+	toTraverseList := [][]*Node589{{root}}
 	for len(toTraverseList) > 0 {
 		currentChild := toTraverseList[len(toTraverseList)-1]
 		toTraverseList = toTraverseList[:len(toTraverseList)-1]
@@ -62,13 +57,13 @@ func preorder(root *Node) []int {
 	return res589
 }
 
-//func preorder589(root *Node) []int {
+//func preorder589(root *Node589) []int {
 //	res589 = make([]int, 0)
 //	traverse589(root)
 //	return res589
 //}
 //
-//func traverse589(root *Node) {
+//func traverse589(root *Node589) {
 //	if root == nil {
 //		return
 //	}
@@ -79,11 +74,11 @@ func preorder(root *Node) []int {
 //}
 
 func TestAl589(t *testing.T) {
-	root6 := &Node{6, nil}
-	root5 := &Node{5, nil}
-	root4 := &Node{4, nil}
-	root3 := &Node{3, []*Node{root5, root6}}
-	root2 := &Node{2, nil}
-	_ = &Node{1, []*Node{root3, root2, root4}}
+	root6 := &Node589{6, nil}
+	root5 := &Node589{5, nil}
+	root4 := &Node589{4, nil}
+	root3 := &Node589{3, []*Node589{root5, root6}}
+	root2 := &Node589{2, nil}
+	_ = &Node589{1, []*Node589{root3, root2, root4}}
 	fmt.Println(preorder(nil))
 }

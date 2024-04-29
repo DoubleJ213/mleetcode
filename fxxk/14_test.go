@@ -40,26 +40,26 @@ import (
 	"testing"
 )
 
-var ans string
+var ans14 string
 
 func longestCommonPrefix(strs []string) string {
-	ans = ""
+	ans14 = ""
 	for x := 0; x < len(strs[0]); x++ {
 		pre := strs[0][x]
 		for i := 1; i < len(strs); i++ { //pre就是从index=0 取的没必要判断
 			if x >= len(strs[i]) {
-				return ans
+				return ans14
 			}
 			cur := strs[i][x]
 			if pre == cur {
 				continue
 			} else {
-				return ans
+				return ans14
 			}
 		}
-		ans = strings.Join([]string{ans, string(pre)}, "")
+		ans14 = strings.Join([]string{ans14, string(pre)}, "")
 	}
-	return ans
+	return ans14
 }
 
 func TestLongestCommonPrefix(t *testing.T) {

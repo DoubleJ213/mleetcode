@@ -85,3 +85,40 @@ func traverse46_1(nums []int, level int) {
 		used46[i] = false
 	}
 }
+
+var ans46 [][]int
+var level46 []int
+
+// 给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。
+func permute46a(nums []int) [][]int {
+	n := len(nums)
+	if n <= 0 {
+		return nil
+	}
+	ans46 = make([][]int, 0)
+	level46 = make([]int, 0)
+	traverse46(nums)
+	return ans46
+}
+
+func traverse46(nums []int) {
+	if len(nums) == 0 {
+		tmp := make([]int, len(level46))
+		copy(tmp, level46)
+		ans46 = append(ans46, tmp)
+		return
+	}
+	for i := 0; i < len(nums); i++ {
+		newNum := getNewNum(nums, i)
+		level46 = append(level46, nums[i])
+		traverse46(newNum)
+		level46 = level46[:len(level46)-1]
+	}
+}
+
+func getNewNum(nums []int, skip int) []int {
+	result47 := make([]int, len(nums)-1)
+	copy(result47[:skip], nums[:skip])
+	copy(result47[skip:], nums[skip+1:])
+	return result47
+}

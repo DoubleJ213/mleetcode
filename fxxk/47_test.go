@@ -14,8 +14,10 @@ import (
 输入：nums = [1,1,2]
 输出：
 [[1,1,2],
- [1,2,1],
- [2,1,1]]
+
+	[1,2,1],
+	[2,1,1]]
+
 示例 2：
 输入：nums = [1,2,3]
 输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
@@ -68,4 +70,49 @@ func TestAl47(t *testing.T) {
 	a := permuteUnique([]int{-1, 2, -1, 2, 1, -1, 2, 1})
 	fmt.Printf("%v\n", a)
 	fmt.Printf("len %v\n", len(a))
+}
+
+var ans47 [][]int
+var used47a []bool
+
+// 那么这部分剪枝的条件即为： 和前一个元素值相同（此处隐含这个元素的 index>0），并且前一个元素还没有被使用过
+func permuteUnique1(nums []int) [][]int {
+	n := len(nums)
+	if n <= 0 {
+		return nil
+	}
+	sort.Ints(nums)
+	ans47 = make([][]int, 0)
+	used47a = make([]bool, len(nums))
+	traverse47a(nums, make([]int, 0))
+	return ans47
+}
+
+func traverse47a(nums []int, path []int) {
+	if len(path) == len(nums) {
+		tmp := make([]int, len(path))
+		copy(tmp, path)
+		ans47 = append(ans47, tmp)
+		return
+	}
+	for i := 0; i < len(nums); i++ {
+		current := nums[i]
+		used := used47[i]
+		if used {
+			continue
+		}
+		if i > 0 {
+			pre := nums[i-1]
+			preUsed := used47[i-1]
+			if pre == current && !preUsed {
+				continue
+			}
+		}
+		//加元素
+		used47[i] = true
+		traverse47a(nums, append(path, current))
+		used47[i] = false
+		//减元素
+	}
+
 }
