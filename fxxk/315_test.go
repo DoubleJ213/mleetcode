@@ -46,7 +46,7 @@ func countSmaller(nums []int) []int {
 	return nil
 }
 
-//类似912那样写的话，没法在merge方法中知道当前的数在原数组的index
+// 类似912那样写的话，没法在merge方法中知道当前的数在原数组的index
 func sortArray315(nums []int, left, right int) {
 	if left == right {
 		return
@@ -57,7 +57,7 @@ func sortArray315(nums []int, left, right int) {
 	merge315(nums, left, mid, right)
 }
 
-//合并left~mid 和mid+1～right
+// 合并left~mid 和mid+1～right
 func merge315(nums []int, left, mid, right int) []int {
 
 	return nil

@@ -5,9 +5,9 @@ import (
 	"testing"
 )
 
-//50. Pow(x, n)
-//n 为有符号整数
-//递归、位运算
+// 50. Pow(x, n)
+// n 为有符号整数
+// 递归、位运算
 func myPow(x float64, n int) float64 {
 	if n == 0 {
 		return 1

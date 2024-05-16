@@ -60,5 +60,5 @@ func traverse797(graph [][]int, start int, path []int) {
 }
 
 func TestAl797(t *testing.T) {
-	fmt.Printf("%v", allPathsSourceTarget([][]int{[]int{4, 3, 1}, {3, 2, 4}, {3}, {4}, {}}))
+	fmt.Printf("%v", allPathsSourceTarget([][]int{{4, 3, 1}, {3, 2, 4}, {3}, {4}, {}}))
 }

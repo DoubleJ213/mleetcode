@@ -104,6 +104,6 @@ func (d *Difference) getOutPut(i, j int) []int {
 }
 
 func TestAl1109(t *testing.T) {
-	fmt.Println(corpFlightBookings([][]int{[]int{1, 2, 10}, []int{2, 3, 20}, []int{2, 5, 25}}, 5))
+	fmt.Println(corpFlightBookings([][]int{{1, 2, 10}, {2, 3, 20}, {2, 5, 25}}, 5))
 	//[10,55,45,25,25]
 }

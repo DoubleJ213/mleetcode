@@ -28,7 +28,6 @@ import (
 416是分成2组，找到一组值为和的一半就行了，剩下一组肯定就是和的另外一半了，但是这题如果照搬就会出问题。
 找到和的1/k 是不够的，剩余的未必都能是1/k。所以这题得遍历全，找齐k 个 sum/k的 子集
 题目翻译过来是 数组nums 能否分成 k个 和为sum/k的子集
-
 */
 func canPartitionKSubsets(nums []int, k int) bool {
 	if k == 1 {

@@ -25,7 +25,7 @@ import (
 
 var dp264 []int
 
-//dp264[i] 表示第i个丑数
+// dp264[i] 表示第i个丑数
 func nthUglyNumber(n int) int {
 	dp264 = make([]int, n)
 	dp264[0] = 1

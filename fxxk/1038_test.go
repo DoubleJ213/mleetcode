@@ -26,7 +26,7 @@ import (
 树中的所有值均 不重复。
 */
 
-//和538一样啊
+// 和538一样啊
 var total int
 
 func bstToGst(root *TreeNode) *TreeNode {

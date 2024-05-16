@@ -47,7 +47,7 @@ func rotate(matrix [][]int) {
 }
 
 func TestAl48(t *testing.T) {
-	rotate([][]int{[]int{1, 2, 3}, []int{4, 5, 6}, []int{7, 8, 9}})
+	rotate([][]int{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}})
 
 	//[1,2,3]
 	//[4,5,6]

@@ -23,7 +23,9 @@ import (
 s1 和 s2 仅包含小写字母
 */
 
-/* checkInclusion
+/*
+	checkInclusion
+
 先搞清楚题目意思
 s2包含一个s1的全排列，就是s2的一个子串刚好和s1中的各字母数量一致。和顺序无关
 

@@ -33,8 +33,8 @@ func TestK(*testing.T) {
  * }
  */
 
-//92. 反转链表 II
-//left、right为索引
+// 92. 反转链表 II
+// left、right为索引
 func reverseBetween1(head *ListNode, left int, right int) *ListNode {
 	//一遍 遍历 完成翻转
 	// 1-2-3-4-5-6

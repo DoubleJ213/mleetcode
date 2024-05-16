@@ -15,7 +15,7 @@ import (
 //题目数据 保证 整个链式结构中不存在环。
 //注意，函数返回结果后，链表必须保持其原始结构。
 
-//进阶：你能否设计一个时间复杂度 O(m + n) 、仅用 O(1) 内存的解决方案？
+// 进阶：你能否设计一个时间复杂度 O(m + n) 、仅用 O(1) 内存的解决方案？
 func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	// 先遍历第一个链表，把所有节点都存到一个map中
 	// 然后再遍历第二个链表
@@ -41,7 +41,7 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	return nil
 }
 
-//进阶：你能否设计一个时间复杂度 O(m + n) 、仅用 O(1) 内存的解决方案？
+// 进阶：你能否设计一个时间复杂度 O(m + n) 、仅用 O(1) 内存的解决方案？
 func getIntersectionNode2(headA, headB *ListNode) *ListNode {
 	//内存o1,那就是不能借助map来解决问题
 	//链表很多题目的思路就是搞2个指针，移来移去比较

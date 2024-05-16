@@ -8,7 +8,7 @@ import (
 //
 //栈（stack）也可以叫堆栈，但是不能叫堆（heap）先入后出
 
-//232
+// 232
 type MyQueue struct {
 	num []int
 }
@@ -54,9 +54,9 @@ func (this *MyQueue) Empty() bool {
 	return false
 }
 
-//数组实现队列，队列先入先出
-//dequeue入队/enqueue出队是对应于队列的，队列是先入先出的线性表。
-//push/pop是对应于栈的，栈是先入后出的线性表。
+// 数组实现队列，队列先入先出
+// dequeue入队/enqueue出队是对应于队列的，队列是先入先出的线性表。
+// push/pop是对应于栈的，栈是先入后出的线性表。
 func TestC(t *testing.T) {
 	obj := MqConstructor()
 	obj.Push(1)

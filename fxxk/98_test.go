@@ -34,9 +34,10 @@ func isValidBST(root *TreeNode) bool {
 /*
 本题要注意的两种
 【2，2，2】 false 没人保证输入的根值不能重复
-      5
-  4      6
-       3   7
+
+	    5
+	4      6
+	     3   7
 */
 func traverse98(root *TreeNode, min, max *TreeNode) bool {
 	if root == nil {

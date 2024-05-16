@@ -59,7 +59,7 @@ func backtrack139(input, current string, dict []string) {
 	}
 }
 
-//存在侥幸心理提交了下，满树递归果然是超时了，先看看剪枝能不能优化下
+// 存在侥幸心理提交了下，满树递归果然是超时了，先看看剪枝能不能优化下
 func wordBreak1(s string, wordDict []string) bool {
 	//由于输入已经限制了，这里就不各种非空乱七八糟的判断了
 	res139 = false
@@ -88,7 +88,8 @@ func backtrack139_1(input, current string, dict []string) {
 	}
 }
 
-/*比如输入 wordDict = ["a", "aa"], s = "aaab"
+/*
+比如输入 wordDict = ["a", "aa"], s = "aaab"
 算法无法找到一个可行的组合，所以一定会遍历整棵回溯树，这里面会存在重复的情况
 因为s 是由 wordDict 组成的，那必然s的开头是有wordDict的某个单词组成的。
 一旦找到s[0,i]这个前缀是由谁组成的，就不用再尝试用别的字符串再来拼前缀

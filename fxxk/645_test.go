@@ -25,8 +25,8 @@ import (
 1 <= nums[i] <= 10^4
 */
 
-//首先 搞一个map 记录每个数出现次数。空间复杂度o(n)不是很好
-//数字是从1到n，然后只错了一个 数字从1到n 没说是有序的
+// 首先 搞一个map 记录每个数出现次数。空间复杂度o(n)不是很好
+// 数字是从1到n，然后只错了一个 数字从1到n 没说是有序的
 func findErrorNums1(nums []int) []int {
 	sort.Ints(nums)
 	pre := 0
@@ -49,7 +49,7 @@ func findErrorNums1(nums []int) []int {
 	return ans654
 }
 
-//这空间降下去了，时间复杂度还很高，异或的思路貌似也可以
+// 这空间降下去了，时间复杂度还很高，异或的思路貌似也可以
 func findErrorNums(nums []int) []int {
 	ans654 := make([]int, 2)
 	//1, 3, 2, 3, 4 输入 异或下 index+1 1 2 3 4 5 最后剩余

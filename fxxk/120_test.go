@@ -2,7 +2,7 @@ package fxxk
 
 import "testing"
 
-//120. 三角形最小路径和
+// 120. 三角形最小路径和
 func minimumTotal(triangle [][]int) int {
 	return 0
 }

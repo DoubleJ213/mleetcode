@@ -36,7 +36,7 @@ expression 由数字和算符 '+'、'-' 和 '*' 组成。
 输入表达式中的所有整数值在范围 [0, 99]
 */
 
-//https://labuladong.gitee.io/algo/di-san-zha-24031/jing-dian--a94a0/fen-zhi-su-65a39/#%E6%B7%BB%E5%8A%A0%E6%8B%AC%E5%8F%B7%E7%9A%84%E6%89%80%E6%9C%89%E6%96%B9%E5%BC%8F
+// https://labuladong.gitee.io/algo/di-san-zha-24031/jing-dian--a94a0/fen-zhi-su-65a39/#%E6%B7%BB%E5%8A%A0%E6%8B%AC%E5%8F%B7%E7%9A%84%E6%89%80%E6%9C%89%E6%96%B9%E5%BC%8F
 func diffWaysToCompute(expression string) []int {
 	//抽象成数、二叉树结构是个难点
 	// 以每个运算符分割左右两边的算式，然后就类似二叉树了。

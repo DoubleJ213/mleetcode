@@ -25,9 +25,9 @@ import (
 30 <=temperatures[i]<= 100
 */
 
-/*496是单调栈 刷的第一题，复用496定义的数据结构
+/*
+496是单调栈 刷的第一题，复用496定义的数据结构
 单调栈从后往前遍历，整一个map，key记录index，value记录温度
-
 */
 func dailyTemperatures(temperatures []int) []int {
 	stack := newStack()

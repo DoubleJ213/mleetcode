@@ -26,7 +26,8 @@ import (
 */
 
 /*
-   strStr  haystack和needle仅由小写英文字符组成
+	strStr  haystack和needle仅由小写英文字符组成
+
 第187偷懒用的10进制表示4个不同的字符，这题字符变多了，尝试下26进制表示
 
 // number 的进制

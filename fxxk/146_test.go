@@ -15,24 +15,24 @@ import (
 //
 //进阶：你是否可以在O(1) 时间复杂度内完成这两种操作？
 
-type node struct {
+type node146 struct {
 	val  int
-	next *node
-	pre  *node
+	next *node146
+	pre  *node146
 }
 
 type LRUCache struct {
 	capacity int
 	size     int
 	values   map[int]int
-	nodes    map[int]*node
-	first    *node
-	last     *node
+	nodes    map[int]*node146
+	first    *node146
+	last     *node146
 }
 
 func LruConstructor(capacity int) LRUCache {
-	tmpNode := &node{val: -1, next: nil, pre: nil}
-	nodesMap := make(map[int]*node)
+	tmpNode := &node146{val: -1, next: nil, pre: nil}
+	nodesMap := make(map[int]*node146)
 	nodesMap[-1] = tmpNode
 	value := make(map[int]int)
 	value[-1] = -2
@@ -80,7 +80,7 @@ func (this *LRUCache) Put(key int, value int) {
 		thisNode.next, thisNode.pre, this.last = nil, this.last, thisNode
 	} else {
 		// 不存在，添加
-		thisNode := &node{val: value, pre: nil, next: nil}
+		thisNode := &node146{val: value, pre: nil, next: nil}
 		thisNode.pre, this.last.next = this.last, thisNode
 		this.last = thisNode
 		this.nodes[key] = thisNode

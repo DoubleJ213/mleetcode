@@ -169,7 +169,7 @@ func getNext773(board [][]int) (up, down, left, right [][]int) {
 	return up, down, left, right
 }
 
-//x0 y0 为0的坐标
+// x0 y0 为0的坐标
 func getArray773(board [][]int, x0, y0, xn, yn int) [][]int {
 	ans := make([][]int, len(board))
 	for i := 0; i < len(ans); i++ {

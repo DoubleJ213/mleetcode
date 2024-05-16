@@ -38,7 +38,6 @@ dp[i] 表示 以 nums[i] 为结尾的「最⼤⼦数组和」
 dp[i] 表示 以 nums[i] 为结尾的「最⼤⼦数组和」
 那个如何通过用dp[i-1]  推导 dp[i]
 因为是连续的，当前结尾。要么当前数是一个数组，要么和前面一个数结尾的数组组成另一个新的数组
-
 */
 func maxSubArray(nums []int) int {
 	dp53 := make([]int, len(nums))

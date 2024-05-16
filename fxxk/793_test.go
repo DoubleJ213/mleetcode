@@ -89,7 +89,7 @@ func preimageSizeFZF2(k int) int {
 	return sum
 }
 
-//然后发现，这个数要么是0 要么是5 只要能找到x=k 就是5 找不到就是0
+// 然后发现，这个数要么是0 要么是5 只要能找到x=k 就是5 找不到就是0
 func preimageSizeFZF3(k int) int {
 	if k == 0 {
 		// 0 1 2 3 4
@@ -118,8 +118,8 @@ func preimageSizeFZF3(k int) int {
 	return 0
 }
 
-//43103094 就超时了，我测试用10^9 他不报错，真的是日了
-//时间复杂度还得优化。我这个是K等于几可能就遍历多少遍
+// 43103094 就超时了，我测试用10^9 他不报错，真的是日了
+// 时间复杂度还得优化。我这个是K等于几可能就遍历多少遍
 func preimageSizeFZF(k int) int {
 	if k == 0 || k == 1 {
 		// 0 1 2 3 4

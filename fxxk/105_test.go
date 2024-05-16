@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-//105. 从前序与中序遍历序列构造二叉树
+// 105. 从前序与中序遍历序列构造二叉树
 func buildTree(preorder []int, inorder []int) *TreeNode {
 	// 递归
 	if len(preorder) == 0 || len(inorder) == 0 || len(preorder) != len(inorder) {

@@ -172,8 +172,8 @@ func dp322_1(coins []int, amount int) int {
 	}
 }
 
-//自底向上使用 dp table 来消除重叠子问题
-//类似fib的for循环那种，自底向上求每个数组的值，然后直接通过查备忘录得出结果
+// 自底向上使用 dp table 来消除重叠子问题
+// 类似fib的for循环那种，自底向上求每个数组的值，然后直接通过查备忘录得出结果
 func coinChange2(coins []int, amount int) int {
 	if len(coins) == 0 || amount == 0 {
 		return 0

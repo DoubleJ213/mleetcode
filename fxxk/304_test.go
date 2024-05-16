@@ -35,12 +35,12 @@ n == matrix[i].length
 最多调用 104 次sumRegion 方法
 */
 
-//row行、col列。第一行/第一列 坐标为0
+// row行、col列。第一行/第一列 坐标为0
 type NumMatrix struct {
 	Sum [][]int
 }
 
-//前缀和主要适用的场景是原始数组不会被修改的情况下，频繁查询某个区间的累加和。
+// 前缀和主要适用的场景是原始数组不会被修改的情况下，频繁查询某个区间的累加和。
 func Constructor304(matrix [][]int) *NumMatrix {
 	if matrix == nil {
 		return &NumMatrix{

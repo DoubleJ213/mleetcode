@@ -5,8 +5,8 @@ import (
 	"testing"
 )
 
-//106. 从中序与后序遍历序列构造二叉树
-//注意:你可以假设树中没有重复的元素。
+// 106. 从中序与后序遍历序列构造二叉树
+// 注意:你可以假设树中没有重复的元素。
 func buildTree106(inorder []int, postorder []int) *TreeNode {
 	if len(inorder) == 0 || len(postorder) == 0 || len(inorder) != len(postorder) {
 		return nil

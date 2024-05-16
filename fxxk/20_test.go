@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-//20. 有效的括号
+// 20. 有效的括号
 func isValid(s string) bool {
 	//TODO：字符串遍历 rune -- int32 byte -- uint8 string 深究
 	var stack = make([]rune, 0)

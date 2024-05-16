@@ -102,7 +102,7 @@ func getMaxLen(s string, i, j int) int {
 	return maxLen
 }
 
-//其实可以不用翻转，收尾元素都是已知的，直接比较就行
+// 其实可以不用翻转，收尾元素都是已知的，直接比较就行
 func longestPalindrome3(s string) string {
 	//第一遍遍历，先翻转原来字符串
 	//然后遍历第二个字符串，每次遍历索引+1，依次和第一个字符串去比较，一直找到一样的。返回一样的长度
@@ -157,7 +157,7 @@ func longestPalindrome3(s string) string {
 //写完发现理解错题目鸟，回文子串得是对称的  上面按照我的思路得到aaca  aaca翻转得到acaa 本身不等于 aaca
 //只是出入里面碰巧有aaca 等找到子串相等。
 
-//重新写
+// 重新写
 func longestPalindrome4(s string) string {
 	//左右指针，之前都是从两边向中间逼近，其实可以考虑从中间向两边逼近
 	//然后回文串，奇数和偶数逻辑是不一样的

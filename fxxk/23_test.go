@@ -66,7 +66,7 @@ func (pq *MyPQ) Pop() interface{} {
 	return tmp
 }
 
-//MaxHeap 自己实现的堆性能还可以优化,这里不用了
+// MaxHeap 自己实现的堆性能还可以优化,这里不用了
 func mergeKLists(lists []*ListNode) *ListNode {
 	if len(lists) == 0 {
 		return nil

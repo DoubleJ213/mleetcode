@@ -24,7 +24,7 @@ import (
 
 var dp718 [][]int
 
-//最长重复子数组
+// 最长重复子数组
 func findLengthErr(nums1 []int, nums2 []int) int {
 	y := len(nums1)
 	x := len(nums2)
@@ -54,7 +54,7 @@ func findLengthErr(nums1 []int, nums2 []int) int {
 
 var max718 int
 
-//最长重复子数组
+// 最长重复子数组
 func findLength(nums1 []int, nums2 []int) int {
 	y := len(nums1)
 	x := len(nums2)

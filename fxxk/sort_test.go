@@ -6,12 +6,12 @@ import (
 )
 
 func TestQuickSort1(t *testing.T) {
-	var nums = []int{2, 6, 7, 5, 1, 3, 4}
-	fmt.Println(quickSort(nums))
+	var nums = []int{5, 4, 3, 2, 1}
+	//fmt.Println(quickSort(nums))
 	//fmt.Println(quickSort1(nums))
 	fmt.Println(mergeSort(nums))
 	//fmt.Println(mergeSort1(nums))
-	fmt.Println(BubbleSort(nums))
+	//fmt.Println(BubbleSort(nums))
 }
 
 func quickSort1(nums []int) []int {

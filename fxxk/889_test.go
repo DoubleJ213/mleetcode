@@ -46,7 +46,7 @@ func constructFromPrePost(preorder []int, postorder []int) *TreeNode {
 	return root
 }
 
-//输入：preorder = [1,2,4,5,3,6,7], postorder = [4,5,2,6,7,3,1]
+// 输入：preorder = [1,2,4,5,3,6,7], postorder = [4,5,2,6,7,3,1]
 func getNums(preorder []int, postorder []int) (leftPre, leftPost, rightPre, rightPost []int) {
 	//root := preorder[0]
 	leftRoot := preorder[1]

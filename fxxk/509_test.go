@@ -6,8 +6,8 @@ import (
 	"time"
 )
 
-//fib(0) =0 fib(1) =1 fib(2) =1
-//fib(n) = fib(N - 1) + fib(N - 2);
+// fib(0) =0 fib(1) =1 fib(2) =1
+// fib(n) = fib(N - 1) + fib(N - 2);
 var res509 []int
 
 func fib(x int) int {

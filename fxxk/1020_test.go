@@ -38,7 +38,7 @@ grid[i][j] 的值为 0 或 1
 var sts1020 bool
 var total1020 int
 
-//数量面积一样，先这么定义了
+// 数量面积一样，先这么定义了
 var area1020 int
 
 func numEnclaves(grid [][]int) int {

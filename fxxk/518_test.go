@@ -114,7 +114,9 @@ dp[..][0] = 1
 
 for i in [1..N]:
 for j in [1..amount]:
+
 	把物品 i 装进背包, 不把物品 i 装进背包
+
 return dp[N][amount]
 
 根据「选择」，思考状态转移的逻辑
@@ -125,8 +127,8 @@ return dp[N][amount]
 那么 dp[i][j] 应该 等于 dp[i][j-coins[i-1]]。
 
 if (j - coins[i-1] >= 0)
- dp[i][j] = dp[i - 1][j] + dp[i][j-coins[i-1]]
 
+	dp[i][j] = dp[i - 1][j] + dp[i][j-coins[i-1]]
 */
 func change2(amount int, coins []int) int {
 	/*

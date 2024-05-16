@@ -16,7 +16,7 @@ func TestG(t *testing.T) {
 	fmt.Println(aaa)
 }
 
-//61. 旋转链表
+// 61. 旋转链表
 func rotateRight(head *ListNode, k int) *ListNode {
 	// 1-2-3-4-5 ，rotate 2
 	// 4-5-1-2-3

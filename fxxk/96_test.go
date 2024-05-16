@@ -20,29 +20,35 @@ import "testing"
 /*
 哈哈，看到这个边界我就能想到，肯定有人19个枚举值直接得结果。
 ---------------
-   2
-  1
 
-  1
-    2
+	 2
+	1
+
+	1
+	  2
+
 ---------------
-  3
- 2
-1
 
-     3
- 1
-   2
+	 3
+	2
 
 1
-  2
-    3
 
-    1
-      3
-     2
+	    3
+	1
+	  2
 
-  2
+1
+
+	2
+	  3
+
+	  1
+	    3
+	   2
+
+	2
+
 1   3
 ---------------
 f 1  =  1
@@ -72,17 +78,17 @@ leftNum * rightNum
 f4+f4+f1*f3+f2*f2+f3*f1
 14+14+1*5+2*2+5 = 42
 */
-var count []int
+var count96 []int
 
 func numTrees(n int) int {
 	//f1 = 1
 	//f2 = 2
-	count = make([]int, 20)
-	count[0] = 1
-	count[1] = 1
-	count[2] = 2
+	count96 = make([]int, 20)
+	count96[0] = 1
+	count96[1] = 1
+	count96[2] = 2
 	traverse96(n)
-	return count[n]
+	return count96[n]
 }
 
 func traverse96(n int) {
@@ -96,12 +102,12 @@ func traverse96(n int) {
 	left, right := 1, n
 	for mid <= n {
 		//需要知道左边和右边剩余几个数，然后对应count里面去找
-		leftSum := count[mid-left]
-		rightSum := count[right-mid]
+		leftSum := count96[mid-left]
+		rightSum := count96[right-mid]
 		sum += leftSum * rightSum
 		mid++
 	}
-	count[n] = sum
+	count96[n] = sum
 }
 
 func TestAl96(t *testing.T) {

@@ -42,7 +42,7 @@ p、q 为不同节点且均存在于给定的二叉搜索树中。不要判断 p
 那么怎么找两个节点的深度最深的公共祖先。后序遍历然后判断值是否等于，或者子树是否存在这个数？
 */
 
-//二叉搜索树
+// 二叉搜索树
 var node235 *TreeNode
 
 func lowestCommonAncestor235(root, p, q *TreeNode) *TreeNode {

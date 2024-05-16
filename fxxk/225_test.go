@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-//225 LIFO FILO 栈
+// 225 LIFO FILO 栈
 type MyStack struct {
 	num []int
 }

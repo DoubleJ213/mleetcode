@@ -24,9 +24,9 @@ import (
 //说明:
 //你可以假设 nums 的长度≥ k-1 且k ≥ 1。
 
-//自定义类型和类型别名
-//将MaxList定义为[]int类型
-//通过Type关键字的定义，MaxList就是一种新的类型，它具有[]int的特性，但是他们不是同一种类型。
+// 自定义类型和类型别名
+// 将MaxList定义为[]int类型
+// 通过Type关键字的定义，MaxList就是一种新的类型，它具有[]int的特性，但是他们不是同一种类型。
 type IntList []int
 
 func (intList *IntList) Push(x interface{}) {
@@ -44,10 +44,10 @@ func (intList *IntList) Len() int {
 	return len(*intList)
 }
 
-//为什么不能直接写 *intList[i]
-//可能是因为*的优先级没有[]高，所以你这里相当于 *(m[1])了
-//指针符号*不能直接使用在已经声明好的变量名上
-//(*intList)[0]
+// 为什么不能直接写 *intList[i]
+// 可能是因为*的优先级没有[]高，所以你这里相当于 *(m[1])了
+// 指针符号*不能直接使用在已经声明好的变量名上
+// (*intList)[0]
 func (intList *IntList) Less(i, j int) bool {
 	//reports whether the element with index i should sort before the element with index j
 	//返回i是否应该在j前面 ,如果是< 表示从小到大排序

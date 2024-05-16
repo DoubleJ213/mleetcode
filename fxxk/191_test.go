@@ -48,7 +48,7 @@ func hammingWeight(num uint32) int {
 	return res191
 }
 
-//n & (n - 1) 可以消除最后一个 1
+// n & (n - 1) 可以消除最后一个 1
 func hammingWeight2(num uint32) int {
 	res191 := 0
 	for num != 0 {

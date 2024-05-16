@@ -24,12 +24,12 @@ import (
 -10^6 <= nums[i] <= 10^6
 */
 
-//dp[i] 表示以 nums[i] 这个数结尾的最长递增子序列的长度
-//返回最长递增子序列的个数 数组最后再遍历一遍，看看最大值有几个
+// dp[i] 表示以 nums[i] 这个数结尾的最长递增子序列的长度
+// 返回最长递增子序列的个数 数组最后再遍历一遍，看看最大值有几个
 var dp673 []int
 var max673 []int
 
-//max673[i] 为考虑以 nums[i] 结尾的最长上升子序列的个数。
+// max673[i] 为考虑以 nums[i] 结尾的最长上升子序列的个数。
 var maxNum673 int
 
 func findNumberOfLIS(nums []int) int {
