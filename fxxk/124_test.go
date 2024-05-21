@@ -31,13 +31,13 @@ import (
 树中节点数目范围是 [1, 3 * 104]
 -1000 <= Node.val <= 1000
 */
-var max int
+var max124 int
 
 func maxPathSum(root *TreeNode) int {
 	//考虑val取值范围，0已经不是最小的数咯
-	max = -1000
+	max124 = -1000
 	getSideMax(root)
-	return max
+	return max124
 
 }
 
@@ -47,7 +47,7 @@ func getSideMax(root *TreeNode) int {
 	}
 	leftMax := getMax(0, getSideMax(root.Left))
 	rightMax := getMax(0, getSideMax(root.Right))
-	max = getMax(max, leftMax+rightMax+root.Val)
+	max124 = getMax(max124, leftMax+rightMax+root.Val)
 	return getMax(leftMax, rightMax) + root.Val
 }
 

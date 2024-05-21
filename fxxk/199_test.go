@@ -2,7 +2,6 @@ package fxxk
 
 import (
 	"fmt"
-	"github.com/mlcPractice/leetcode/editor/cn"
 	"testing"
 )
 
@@ -17,7 +16,7 @@ import (
  */
 var res199 []int
 
-func rightSideView(root *test.TreeNode) []int {
+func rightSideView(root *TreeNode) []int {
 	res199 = make([]int, 0)
 	if root == nil {
 		return res199
@@ -26,7 +25,7 @@ func rightSideView(root *test.TreeNode) []int {
 	return res199
 }
 
-func traverse199(root *test.TreeNode, level int) {
+func traverse199(root *TreeNode, level int) {
 	if root == nil {
 		return
 	}
@@ -46,8 +45,8 @@ func traverse199(root *test.TreeNode, level int) {
 
 func TestBinaryTreeRightSideView(t *testing.T) {
 	//dfs 一直right？
-	var root = &test.TreeNode{1,
-		&test.TreeNode{2, test.root4, test.root5},
-		&test.TreeNode{3, nil, nil}}
+	var root = &TreeNode{1,
+		&TreeNode{2, nil, nil},
+		&TreeNode{3, nil, nil}}
 	fmt.Println(rightSideView(root))
 }

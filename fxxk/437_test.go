@@ -92,3 +92,41 @@ func Test437(t *testing.T) {
 	root := &TreeNode{6, root2, root8}
 	fmt.Println(pathSum(root, 8))
 }
+
+var res437 int
+
+func pathSum2(root *TreeNode, targetSum int) int {
+	res437 = 0
+	if root == nil {
+		return 0
+	}
+	traverse437(root, make([]int, 0), targetSum)
+	return res437
+}
+
+// 返回 sumList 表示 便利到这里之前 和分别有哪些了
+// 进一步的，如果之前是一个map，那就是找 targetSum - root.val的值是否存在 有几个就更方便了？
+// map key 表示sum值，value表示 达到当前sum的个数，但是也不太好维护。先list写吧
+func traverse437(root *TreeNode, sumList []int, targetSum int) {
+	if root == nil {
+		return
+	}
+
+	if root.Val == targetSum {
+		res437++
+	}
+	if len(sumList) > 0 {
+		for i := 0; i < len(sumList); i++ {
+			if sumList[i]+root.Val == targetSum {
+				res437++
+			}
+			sumList[i] += root.Val
+		}
+	}
+
+	traverse437(root.Left, append(sumList, root.Val), targetSum)
+	traverse437(root.Right, append(sumList, root.Val), targetSum)
+	for j := 0; j < len(sumList); j++ {
+		sumList[j] -= root.Val
+	}
+}
