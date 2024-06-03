@@ -51,13 +51,6 @@ func getSideMax(root *TreeNode) int {
 	return getMax(leftMax, rightMax) + root.Val
 }
 
-func getMax(x, y int) int {
-	if x >= y {
-		return x
-	}
-	return y
-}
-
 func TestAl(t *testing.T) {
 	//tree1 := &TreeNode{Val: 15, Left: nil, Right: nil}
 	//tree2 := &TreeNode{Val: 7, Left: nil, Right: nil}

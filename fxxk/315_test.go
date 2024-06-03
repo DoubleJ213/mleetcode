@@ -36,10 +36,10 @@ counts[i] 的值是 nums[i] 右侧小于nums[i] 的元素的数量
 
 归并，心态爆炸，写不下去了，下次再写
 */
-var tmp []int
+var tmp2831 []int
 
 func countSmaller(nums []int) []int {
-	tmp = make([]int, len(nums))
+	tmp2831 = make([]int, len(nums))
 	left := 0
 	right := len(nums) - 1
 	sortArray315(nums, left, right)

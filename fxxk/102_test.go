@@ -7,23 +7,23 @@ import (
 
 // 二叉树，BFS
 
-var res [][]int
+var res102 [][]int
 
 func levelOrder(root *TreeNode) [][]int {
 	// 递归 实现
-	res := make([][]int, 0)
+	res102 := make([][]int, 0)
 	dfs(root, 0)
-	return res
+	return res102
 }
 
 func dfs(root *TreeNode, level int) {
 	if root == nil {
 		return
 	}
-	if level == len(res) {
-		res = append(res, []int{})
+	if level == len(res102) {
+		res102 = append(res102, []int{})
 	}
-	res[level] = append(res[level], root.Val)
+	res102[level] = append(res102[level], root.Val)
 	dfs(root.Left, level+1)
 	dfs(root.Right, level+1)
 }

@@ -51,13 +51,6 @@ func traverse4(root *TreeNode, level int) {
 	return
 }
 
-func getMin(x, y int) int {
-	if x > y {
-		return y
-	}
-	return x
-}
-
 func TestAl111(t *testing.T) {
 	root2 := &TreeNode{2, nil, nil}
 	root := &TreeNode{1, root2, nil}

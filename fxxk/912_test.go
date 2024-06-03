@@ -61,3 +61,35 @@ func merge912(left []int, right []int) []int {
 func TestAl912(t *testing.T) {
 	fmt.Println(sortArray([]int{2, 6, 7, 5, 1, 3, 4}))
 }
+
+func sortArray2(nums []int) []int {
+	n := len(nums)
+	//fmt.Printf("初始 %v\n", nums)
+	for i := n/2 - 1; i >= 0; i-- {
+		heapify(nums, n, i)
+	}
+	//fmt.Printf("堆化之后 %v\n", nums)
+	for i := n - 1; i > 0; i-- {
+		nums[0], nums[i] = nums[i], nums[0]
+		heapify(nums, i, 0)
+	}
+	return nums
+}
+
+// arr 数组， 对长度为n ，根为i的堆进行初始化
+func heapify(arr []int, n, i int) {
+	largest := i
+	left := 2*i + 1
+	right := 2*i + 2
+
+	if left < n && arr[left] > arr[largest] {
+		largest = left
+	}
+	if right < n && arr[right] > arr[largest] {
+		largest = right
+	}
+	if largest != i {
+		arr[i], arr[largest] = arr[largest], arr[i] // swap
+		heapify(arr, n, largest)
+	}
+}
