@@ -23,7 +23,7 @@ import (
 -1000 <= Node.val <= 1000
 */
 
-var min int
+var min111 int
 
 /*
 很多人写出的代码都不符合 1,2 这个测试用例，是因为没搞清楚题意
@@ -34,9 +34,9 @@ func minDepth(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
-	min = 10001
+	min111 = 10001
 	traverse4(root, 1)
-	return min
+	return min111
 }
 
 func traverse4(root *TreeNode, level int) {
@@ -46,7 +46,7 @@ func traverse4(root *TreeNode, level int) {
 	traverse4(root.Left, level+1)
 	traverse4(root.Right, level+1)
 	if root.Left == nil && root.Right == nil {
-		min = getMin(min, level)
+		min111 = getMin(min111, level)
 	}
 	return
 }
